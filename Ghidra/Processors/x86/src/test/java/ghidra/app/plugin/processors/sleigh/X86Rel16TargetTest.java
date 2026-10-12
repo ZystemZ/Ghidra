@@ -66,9 +66,10 @@ public class X86Rel16TargetTest extends AbstractGenericTest {
 		return flows[0].getOffset();
 	}
 
-	/** Sets the code segment at {@code at}, as MzLoader does. */
+	/** Sets CS and cseg at {@code at}, as MzLoader does. */
 	private void setCodeSegment(String at, int segment) throws Exception {
 		builder.setRegisterValue("CS", at, at, segment);
+		builder.setRegisterValue("cseg", at, at, segment);
 	}
 
 	/** Unaligned segment, the branch crosses a linear 64K page, IP does not wrap (#981). */
